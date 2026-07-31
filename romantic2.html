@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To my girl happy❤💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: radial-gradient(circle, #ffdde1, #ee9ca7);
+      color: #333;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    header {
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4em;
+      color: #b30059;
+      text-shadow: 2px 2px 8px #fff;
+    }
+
+    .message {
+      margin: 50px auto;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
+      animation: flicker 3s infinite alternate;
+    }
+
+    .message p {
+      font-size: 1.4em;
+      line-height: 1.6;
+      color: #660033;
+    }
+
+    .heart {
+      font-size: 5em;
+      color: red;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes flicker {
+      from { box-shadow: 0 0 20px rgba(255,182,193,0.7); }
+      to { box-shadow: 0 0 40px rgba(255,105,180,0.9); }
+    }
+
+    .hidden-note {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #b30059;
+      font-style: italic;
+    }
+
+    .choices {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .choices button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background: #b30059;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .choices button:hover {
+      background: #ff4d94;
+    }
+
+    .response {
+      margin-top: 20px;
+      font-size: 1.3em;
+      color: #660033;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 1em;
+      color: #444;
+    }
+
+    /* Floating hearts */
+    .floating-heart {
+      position: absolute;
+      font-size: 2em;
+      color: red;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Romantic Web</h1>
+  </header>
+
+  <div class="message">
+    <p>“I love you so much!”</p>
+    <p>You are my forever inspiration.</p>
+    <div class="heart">❤</div>
+    <button onclick="showNote()">Reveal My Secret</button>
+    <div class="hidden-note" id="note">Every heartbeat whispers your name...</div>
+
+    <div class="choices" id="choices">
+      <button onclick="sayYes()">Yes 💖</button>
+      <button onclick="sayNo()">No 😅</button>
+    </div>
+
+    <div class="response" id="response"></div>
+  </div>
+
+  <footer>
+    Made with love by Ian
+  </footer>
+
+  <!-- Background music -->
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function showNote() {
+      document.getElementById("note").style.display = "block";
+      document.getElementById("choices").style.display = "block";
+    }
+
+    function sayYes() {
+      document.getElementById("response").innerHTML = "You’ve made me the happiest person alive! 💍✨";
+    }
+
+    function sayNo() {
+      document.getElementById("response").innerHTML = "Oops… love won’t take No for an answer 😉";
+    }
+
+    // Generate floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 1000);
+  </script>
+</body>
+</html>
